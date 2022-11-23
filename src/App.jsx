@@ -1,17 +1,15 @@
 import './App.css';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
+import NavBarReact from './components/Nav';
+import { Layout } from './components/Layaout';
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <>
-        <NavBar/>
-        <ItemListContainer texto='Bienvenidos!'/>
-        </>
-      </main>
-    </div>
+      <Layout>
+        <ItemListContainer/>
+        <ItemDetailContainer/>
+      </Layout>
   );
 }
 
