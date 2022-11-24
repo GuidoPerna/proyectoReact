@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
-import Title from "./Title";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import { inventario } from "../mocks/item.mocks";
 
-export const ItemListContainer = ({texto}) => {
+export const ItemListContainer = () => {
     const [data, setData] = useState([]);
 
     useEffect(() =>{
