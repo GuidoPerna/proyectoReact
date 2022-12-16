@@ -10,7 +10,6 @@ const CategoryView = () => {
 
     return (
         <Layout>
-            <ItemListContainer/>
             {categories.map((product)=> (
             <Item product={product} />
             ))}

@@ -9,17 +9,17 @@ function NavBarReact() {
   return (
        <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">CompuTienda</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link><Link to="/">Home</Link></Nav.Link>
-            <NavDropdown title="Opciones" id="basic-nav-dropdown">
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
-                  <Link to="/Category/1">Categorías</Link>
+                  <Link to="/Category/teclados">Teclados</Link>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                  <Link to="/Item/1">Items</Link>
+                  <Link to="/Category/mouse">Mouses</Link>
               </NavDropdown.Item>
-            </NavDropdown>
+          </NavDropdown>
             <Nav.Link href="#pricing"><CartWidget/></Nav.Link>
           </Nav>
         </Container>

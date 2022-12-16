@@ -1,32 +1,15 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
 import Button from 'react-bootstrap/Button';
 
-export const SizesExample = ({initial, stock, onAdd}) => {
-    const [count, setCount] = useState(parseInt(initial));
-
-    const decrease = () => {
-        setCount(count -1);
-    }
-
-    const increase = () => {
-        setCount(count +1);
-    }
-
-    useEffect(() => {
-        setCount(parseInt(initial));
-    } ,[initial])
-
-  return (
+export const SizesExample = ({count, handleCount}) => {
+    return (
     <>
       <div>
-        <Button variant="primary" size="sm" disabled={count <= 1} onClick={decrease}>-</Button>
+        <Button variant="primary" size="sm" disabled={count <= 1} onClick={() => handleCount("minus")}>-</Button>
         {' '}
-        <span>{count}</span>
+        <span id="counter">{count}</span>
         {' '}
-        <Button variant="secondary" size="sm" disabled={count >= stock} onClick={increase}>+</Button>
-        <div>
-        <Button variant="dark" disabled={stock <= 0} onClick={() => onAdd(count)} >Agregar</Button>
-        </div>
+        <Button variant="secondary" size="sm" onClick={() => handleCount("plus")}>+</Button>
       </div>
     </>
   );
