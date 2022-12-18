@@ -1,4 +1,4 @@
-import { Layout } from '../components/Layaout';
+import { Layout } from '../components/Layout';
 import { useParams } from "react-router-dom";
 import Item from "../components/Item";
 import { inventario } from "../mocks/item.mocks";

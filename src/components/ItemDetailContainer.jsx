@@ -1,24 +1,28 @@
 import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { inventario } from "../mocks/item.mocks";
 
 export const ItemDetailContainer = () => {
-    const [data, setData] = useState({});
+    const [item, setItem] = useState(null);
+    const { id } = useParams();
 
     useEffect(() =>{
-        const getData = new Promise(resolve => {
-            setTimeout(() => {
-                resolve(inventario[0]);
-            }, 7000);
-        });
-        getData.then(res => setData(res));
-    }, []); 
+        new Promise((resolve) => 
+            setTimeout(() =>{
+                const itemFiltered = inventario.find((item) => item.id === id);
+                resolve(itemFiltered);
+            }, 2000)
+            ).then((data) => setItem(data));
+    }, [id]); 
 
-    if (!data) {
+    if (!item) {
         return <p>Cargando inventario...</p>;
     }
     
-    return  <ItemDetail data={data}/>;
+    return (
+    <ItemDetail item={item}/>
+    );
 }
 
 export default ItemDetailContainer;

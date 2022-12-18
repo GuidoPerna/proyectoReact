@@ -11,7 +11,7 @@ function NavBarReact() {
         <Container>
           <Navbar.Brand href="#home">CompuTienda</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link><Link to="/">Home</Link></Nav.Link>
+            <Nav.Link to="/">Home</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
                   <Link to="/Category/teclados">Teclados</Link>

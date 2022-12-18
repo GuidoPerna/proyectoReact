@@ -3,13 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SizesExample } from "./ItemCount";
+import { ItemCount } from "./ItemCount";
 
 
 export const BasicExample = ({product}) => {
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
-  const [currentStock, setCurrentStock] = useState(product.stock);
+  const [currentStock, setCurrentStock] = useState(product?.stock);
   const maxQuantity = currentStock;
 
   function handleCount(type) {
@@ -33,7 +33,7 @@ export const BasicExample = ({product}) => {
         <Card.Title><h2>{product?.name}</h2></Card.Title>
         <Card.Text>{product?.description}</Card.Text>
         <Card.Text>{currentStock > 0 ? (
-            <SizesExample count={count} handleCount={handleCount} />
+            <ItemCount count={count} handleCount={handleCount} />
           ) : (<span>Sin stock</span>)}</Card.Text>
         <Button variant="primary" onClick={handleAdd} disabled={currentStock === 0}>Agregar al carrito</Button>
         <Button variant="primary" onClick={handleCheckout}>Finalizar compra</Button>

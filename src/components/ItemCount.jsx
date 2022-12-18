@@ -1,7 +1,7 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 
-export const SizesExample = ({count, handleCount}) => {
+export const ItemCount = ({count, handleCount}) => {
     return (
     <>
       <div>
@@ -15,4 +15,4 @@ export const SizesExample = ({count, handleCount}) => {
   );
 }
 
-export default SizesExample;
+export default ItemCount;
