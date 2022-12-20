@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
 
 
-export const BasicExample = ({product}) => {
+export const BasicExample = ({ item }) => {
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
-  const [currentStock, setCurrentStock] = useState(product?.stock);
+  const [currentStock, setCurrentStock] = useState(item.stock);
   const maxQuantity = currentStock;
 
   function handleCount(type) {
@@ -30,8 +30,9 @@ export const BasicExample = ({product}) => {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title><h2>{product?.name}</h2></Card.Title>
-        <Card.Text>{product?.description}</Card.Text>
+        <Card.Title><h2>{item?.name}</h2></Card.Title>
+        <Card.Text>{item?.description}</Card.Text>
+        <Card.Text>Stock: {item?.stock}</Card.Text>
         <Card.Text>{currentStock > 0 ? (
             <ItemCount count={count} handleCount={handleCount} />
           ) : (<span>Sin stock</span>)}</Card.Text>

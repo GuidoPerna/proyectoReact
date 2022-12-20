@@ -20,7 +20,7 @@ function NavBarReact() {
                   <Link to="/Category/mouse">Mouses</Link>
               </NavDropdown.Item>
           </NavDropdown>
-            <Nav.Link href="#pricing"><CartWidget/></Nav.Link>
+            <Nav.Link href="/cart"><CartWidget/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

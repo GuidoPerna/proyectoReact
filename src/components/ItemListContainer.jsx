@@ -29,13 +29,12 @@ export const ItemListContainer = () => {
         console.log(`${cantidad} en el carrito`);
     }
 
-    if (!data) {
+    if (data.length === 0) {
         return <p>Cargando inventario...</p>;
     }
 
     return (
         <>
-            <ItemCount initial={1} stock={10} onAdd={onAdd}/>
             <ItemList data={data}/>
         </>
     );

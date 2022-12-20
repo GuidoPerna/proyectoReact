@@ -7,7 +7,7 @@ export const Item = ({product}) => {
   const navigate = useNavigate();
 
   function handleNavigate() {
-    navigate(`/item/${product.id}`);
+    navigate(`/item/${product?.id}`);
   }
 
   return (
@@ -18,7 +18,7 @@ export const Item = ({product}) => {
         <Card.Text>{product?.description}</Card.Text>
         <Card.Text>{product?.price}</Card.Text>
         <Card.Text>Stock: {product?.stock}</Card.Text>
-        <Button variant="primary">Agregar</Button>
+        <Button variant="primary">Ver más</Button>
       </Card.Body>
     </Card>
   );
