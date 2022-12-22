@@ -1,20 +1,9 @@
-import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import { inventario } from "../mocks/item.mocks";
+import React from "react";
+import { useGetItem } from "../hooks/usegetItem";
+import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = () => {
-    const [item, setItem] = useState(null);
-    const { id } = useParams();
-
-    useEffect(() =>{
-        new Promise((resolve) => 
-            setTimeout(() =>{
-                const itemFiltered = inventario.find((item) => item.id === id);
-                resolve(itemFiltered);
-            }, 2000)
-            ).then((data) => setItem(data));
-    }, [id]); 
+    const item = useGetItem();
 
     if (!item) {
         return <p>Cargando inventario...</p>;
