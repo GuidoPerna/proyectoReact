@@ -9,7 +9,7 @@ function NavBarReact() {
   return (
        <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">CompuTienda</Navbar.Brand>
+          <Navbar.Brand><Link to="/">CompuTienda</Link></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link><Link to="/">Home</Link></Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
