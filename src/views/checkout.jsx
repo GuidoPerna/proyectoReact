@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { CartContext } from "../context/cartContext";
-import { Button } from "bootstrap";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 // firebase
 import {
@@ -77,33 +78,19 @@ const CheckoutView = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleFinalizePurchase}>
-        <div>
-          <input
-            placeholder="Nombre Completo"
-            required
-          />
-          <input
-            placeholder="Numero de Telefono"
-            type="number"
-            required
-          />
-          <input
-            placeholder="Email"
-            type={"email"}
-            required
-          />
-        </div>
+        <Form onSubmit={handleFinalizePurchase} >
+        <Form.Group className="mb-3">
+        <Form.Control placeholder="Nombre" required />
+        <Form.Control type="number" placeholder="Telefono" required />
+        <Form.Control type="email" placeholder="Mail" required />
         <span>
-          Valor total: <strong>${totalAmount}</strong>
+        Valor total: <strong>${totalAmount}</strong>
         </span>
-        <button
-          type="submit"
-          disabled={isLoading}
-        >
-          Finalizar
-        </button>
-      </form>
+        <Button variant="primary" type="submit" disabled={isLoading}>
+        Completar
+        </Button>
+        </Form.Group>
+        </Form>   
     </Layout>
   );
 };
