@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
+import { useGetItemImg } from "../hooks/usegetItemImg";
 
 export const Item = ({product, quantityAdded }) => {
   const navigate = useNavigate();
+  const img = useGetItemImg(product?.img);
 
   function handleNavigate() {
     navigate(`/item/${product?.id}`);
@@ -11,7 +13,7 @@ export const Item = ({product, quantityAdded }) => {
 
   return (
     <Card style={{ width: '18rem' }} onClick={handleNavigate}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={img} alt={product?.name} />
       <Card.Body>
         <Card.Title>{product?.name}</Card.Title>
         <Card.Text>{product?.description}</Card.Text>

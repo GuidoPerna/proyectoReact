@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
 import { CartContext } from "../context/cartContext";
+import { useGetItemImg } from "../hooks/usegetItemImg";
 
 
 export const ItemDetail = ({ item }) => {
@@ -13,6 +14,7 @@ export const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.stock);
   const maxQuantity = currentStock;
+  const img = useGetItemImg(item.img);
 
   function handleCount(type) {
     if (type === "plus" && count < maxQuantity) setCount(count + 1);
@@ -32,11 +34,11 @@ export const ItemDetail = ({ item }) => {
 
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={img} alt={item?.name} />
       <Card.Body>
         <Card.Title><h2>{item?.name}</h2></Card.Title>
         <Card.Text>{item?.description}</Card.Text>
-        <Card.Text>Stock: {item?.stock}</Card.Text>
+        <Card.Text> {currentStock > 0 && ( <p> En Stock: {currentStock}</p>)}</Card.Text>
         <Card.Text>{currentStock > 0 ? (
             <ItemCount count={count} handleCount={handleCount} />
           ) : (<span>Sin stock</span>)}</Card.Text>
